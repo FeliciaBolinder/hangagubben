@@ -1,11 +1,11 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class hangagubbenorg
+public class Hangman
 
 {
     public static void main(String[] args) {
-        String[] words = {"potatis", "heja", "gulleplutt"};
+        String[] words = {"potatis", "glass", "gulleplutt"};
 
         int randomWordNumber = (int) (Math.random() * words.length);
 
@@ -30,10 +30,26 @@ public class hangagubbenorg
                     wordIsGuessed = true;
                     break;
             }
-        } while (! wordIsGuessed);
-        System.out.println("\nThe word is " + words[randomWordNumber] +
-                ". You guesses wrong " + (triesCount -findEmptyPosition(enteredLetters)) +
-                " time(s)");
+        } while (!wordIsGuessed && triesCount- findEmptyPosition(enteredLetters)<5);
+        if (wordIsGuessed) {
+            System.out.println("\nThe word is " + words[randomWordNumber] +
+                    " You missed " + (triesCount - findEmptyPosition(enteredLetters)) +
+                    " time(s)");
+            System.exit(5);
+        }
+        else {
+            System.out.print("You guessed wrong to many times. You dead m8\n");
+            System.out.println("         ____________");
+            System.out.println("        |      |___  |");
+            System.out.println("        |      (._.) |");
+            System.out.println("        |       <|>  |");
+            System.out.println("        |      _/\\_ |");
+            System.out.println("        |            |");
+            System.out.println("         ____________");
+            System.out.print("\n");
+
+            System.exit(5);
+        }
     }
 
     // Hint user to enter a guess letter
@@ -62,8 +78,6 @@ public class hangagubbenorg
         else {
 
             System.out.println(userInput + " is not in the word");
-            System.out.println("Keep guessing!");
-
 
             return 0;
         }
@@ -98,3 +112,4 @@ public class hangagubbenorg
         return i;
     }
 }
+
