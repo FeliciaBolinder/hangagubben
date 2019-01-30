@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Hangman
+public class hangagubbenorg
 
 {
     public static void main(String[] args) {
@@ -9,7 +9,7 @@ public class Hangman
         //Pick random world from array
         int randomWordNumber = (int) (Math.random() * words.length);
 
-        //Array for words that are already guesed
+        //Array for words that are already guessed
         char[] enteredLetters = new char[words[randomWordNumber].length()];
         int triesCount = 0;
 
